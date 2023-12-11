@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Survey Form</title>
+ <style>
+     body {
+    font-family: sans-serif;
+    background-color: #3e98e7;
+    color: #031a2d;
+  }
+  
+  form {
+    width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  select {
+    -webkit-appearance: menulist;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  .btn {
+    background-color: #337ab7;
+    color: #fff;
+    border: 1px solid #337ab7;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #286090;
+  }
+ </style>
+</head>
+<body>
+  <form action="/submit_survey" method="post" id="survey-form">
+    <h1>Customer Survey Form</h1>
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="emial">Email:</label>
+      <input type="email" name="email" id="email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="is_first_time">Is this the first time you are using our products and services?</label>
+      <input type="checkbox" name="is_first_time" id="is_first_time">
+    </div>
+
+    <div class="form-group">
+      <label for="would_recommend">Would you recommend our company to your friends and colleagues?</label>
+      <input type="checkbox" name="would_recommend" id="would_recommend">
+    </div>
+
+    <div class="form-group">
+      <label for="satisfaction">How satisfied are you with our company overall?</label>
+      <select name="satisfaction" id="satisfaction">
+        <option value="1">Very dissatisfied</option>
+        <option value="2">Dissatisfied</option>
+        <option value="3" selected>Neutral</option>
+        <option value="4">Satisfied</option>
+        <option value="5">Very satisfied</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="suggestions">Do you have any suggestions for how we can improve our services?</label>
+      <textarea name="suggestions" id="suggestions" rows="4" cols="50"></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</body>
+</html>
+<script>
+    // Validate the form before submitting
+const form = document.getElementById('survey-form');
+form.addEventListener('submit', function(event) {
+  if (!form.name.value || !form.email.value) {
+    event.preventDefault();
+    alert('Please enter your name and email address.');
+  }
+});
+</script>

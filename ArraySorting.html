@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Sorting</title>
+</head>
+<body>
+    <h1>Array Sorting (Descending Order)</h1>
+    <input type="text" id="inputArray" placeholder="Enter numbers (comma-separated)">
+    <button onclick="sortAndDisplay()">Sort</button>
+    <p id="output"></p>
+
+    <script>
+        function sortAndDisplay() {
+            const inputArray = document.getElementById('inputArray').value;
+            const numbers = inputArray.split(',').map(Number);
+
+            numbers.sort(function(a, b) {
+                return b - a;
+            });
+
+            document.getElementById('output').textContent = "Sorted (Descending): " + numbers.join(', ');
+        }
+    </script>
+</body>
+</html>
